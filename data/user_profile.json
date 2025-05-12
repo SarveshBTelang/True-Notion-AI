@@ -1,0 +1,15 @@
+[
+  {
+    "id": "df5c2e12-471a-4d18-9d90-6c35d70f3a32",
+    "properties": {
+      "Name": "Sarvesh Telang",
+      "Hobbies": ["Playing chess", "Watching sports mainly Cricket"],
+      "Free time": ["Learn about AI-ML", "Enthusiastic about technology and cars", "Watching Anime"],
+      "Nationality": "India",
+      "Birth Date": "1997-11-01",
+      "Birth Place": "Pune, Maharashtra",
+      "Gender": "Male",
+      "Native Language": "Marathi"
+    }
+  }
+]

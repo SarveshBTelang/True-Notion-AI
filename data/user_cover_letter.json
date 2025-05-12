@@ -1,0 +1,36 @@
+[
+  {
+    "id": "1f088b77-abf2-81a1-9a10-b34cf91dd967",
+    "properties": {
+      "Name": "Sarvesh Telang",
+      "Address": "Kurt-Schumacher Str. 10.0.2, 67663 Kaiserslautern, Deutschland",
+      "Phone": "+49 1525XXXXXXX",
+      "Email": "telang@rptu.de",
+      "Positions": [
+        "Software Developer",
+        "Python Developer",
+        "Data Engineer",
+        "Automotive Engineer",
+        "Data Analyst",
+        "Full Stack Developer"
+      ],
+      "Salutation": "Dear Hiring Manager",
+      "Introduction": "As a master’s student in Commercial Vehicle Technology, I possess not only solid expertise in modern software technologies, data science, and cloud computing but also practical experience in interdisciplinary domains—ranging from automotive software to machine learning and data engineering. Therefore, I see myself as an ideal addition to your team.",
+      "Academic Background": "During my master’s at RPTU Kaiserslautern-Landau, I built a strong foundation in deep learning and data engineering tools. For my thesis, I focused on training a deep learning model for lane keeping in autonomous vehicles. This involved predicting future lane positions using time-series forecasting and a spatio-temporal road inference strategy to train a Seq2Seq Transformer model. The solution was successfully integrated into a vision-based Model Predictive Control (MPC) framework, achieving 91% accuracy in the CARLA simulation environment.",
+      "Professional Experience": "At Robert Bosch GmbH, I implemented an AI-based knowledge discovery framework for the vehicle camera manufacturing process and developed a tool for quality assessment of labels, which was successfully integrated into a CI/CD pipeline.",
+      "Programming Languages": ["Python", "JavaScript"],
+      "Frameworks": ["PyTorch", "TensorFlow", "Flask"],
+      "Tools": ["Docker", "Kubernetes"],
+      "Platforms": ["Azure ML"],
+      "Web Technologies": ["HTML", "CSS", "RESTful APIs"],
+      "Strengths": [
+        "Strong problem-solving skills",
+        "Clear communication of technical concepts",
+        "Collaboration and teamwork",
+        "Commitment to quality and continuous learning"
+      ],
+      "Closing": "I look forward to discussing my motivation and the potential contributions I see for your company in a personal interview. Let’s work together to implement innovative projects and set new benchmarks in the industry.",
+      "Signature": "Sincerely,\n\nSarvesh Telang"
+    }
+  }
+]

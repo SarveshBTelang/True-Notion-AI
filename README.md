@@ -68,3 +68,5 @@ uvicorn main:app --reload   (standalone mode for testing)
 
 uvicorn app:app --reload   (with fast api backend server)
 
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+

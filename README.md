@@ -1,11 +1,17 @@
-# 🧠 TrueNotion AI Framework
+<p align="center">
+  <img src="logo.png" alt="Logo" width="500" />
+</p>
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-![Repo Size](https://img.shields.io/github/repo-size/SarveshBTelang/True-Notion-AI)
-![Last Commit](https://img.shields.io/github/last-commit/SarveshBTelang/True-Notion-AI)
-![Issues](https://img.shields.io/github/issues/SarveshBTelang/True-Notion-AI)
-![Pull Requests](https://img.shields.io/github/issues-pr/SarveshBTelang/True-Notion-AI)
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
+<p align="center">
+  <a href="https://www.apache.org/licenses/LICENSE-2.0">
+    <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache-2.0" />
+  </a>
+  <img src="https://img.shields.io/github/repo-size/SarveshBTelang/True-Notion-AI" alt="Repo Size" />
+  <img src="https://img.shields.io/github/last-commit/SarveshBTelang/True-Notion-AI" alt="Last Commit" />
+  <img src="https://img.shields.io/github/issues/SarveshBTelang/True-Notion-AI" alt="Issues" />
+  <img src="https://img.shields.io/github/issues-pr/SarveshBTelang/True-Notion-AI" alt="Pull Requests" />
+  <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions welcome" />
+</p>
 
 > **An open-source AI agent framework combining CrewAI, LangChain, and Agentic RAG, with full control over your data.**
 
@@ -58,15 +64,46 @@ This repo empowers you to build your own **AI assistant** with:
 git clone https://github.com/SarveshBTelang/True-Notion-AI.git
 cd True-Notion-AI
 
-# 2. Install dependencies
+# 2. Install dependencies (Backend)
 pip install -r requirements.txt
 
-# 3. Set up environment variables (Notion API, Redis URL, etc.)
+# 3. Set up environment variables
 
-# 4. Run the app
-uvicorn main:app --reload   (standalone mode for testing)
+# NOTION DATABASE ID
+Log in to your Notion account, Create a Database, Note down its ID from the browser URL.
+The term before "?" is your database ID
+https://www.notion.so/👉1f088b77abf28060xxxxxxxxxxxxxxxx👈?v=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# NOTION INTEGRATION TOKEN
+Go to https://www.notion.so/profile/integrations, Log in to your Notion account, Select your workspace with created database and generate token
+Note: Ensure the database is connected to your token by checking the "Connections" tab in Database settings.
+
+# UPSTASH REDIS REST URL & REST TOKEN
+Log in to your Upstash Redis account: https://console.upstash.com/login
+Create Database and retrieve both REST URL and TOKEN under Python from "REST API" tab
+
+# MISTRAL API (or any custom supported LLM for Crew AI agents)
+Generate your Mistral API key at https://console.mistral.ai/api-keys
+Note: For using custom LLM, configure your LLM code in /agents/load_default_agent.py
+For more details on model support, visit https://docs.crewai.com/concepts/llms
+
+# Save all the API keys in .env file
+See .env-example.txt for more details
+
+# 5. Run the app
+You can run the app with python without deploying it on frontend:
+
+python main.py   (standalone mode for testing)
 
 uvicorn app:app --reload   (with fast api backend server)
+
+# 6. Install dependencies (Frontend)
+
+
+
+
+
+
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 

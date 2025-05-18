@@ -50,7 +50,13 @@ if not agent_data or not task_data:
     agent_data = config_data["agent"]
     task_data = config_data["task"]
 
-# Initialize LLM
+# Initialize LLM 
+"""
+You can use any supported or your custom Large Language Model (LLM) with Crew AI.
+
+For more details on model support, refer to Crew AI's documentation: https://docs.crewai.com/concepts/llms
+
+"""
 llm = LLM(
     model="mistral/mistral-large-latest",
     temperature=0.7,

@@ -7,6 +7,7 @@ import VideoImageDisplay from './components/Media';
 import ImageDisplay from './components/Media2';
 import { Container } from '@chakra-ui/react';
 import Lenis from '@studio-freight/lenis';
+import Utils from './utils/utils'
 import SocialButtons from './components/SocialProfile';
 import LoadedFilesReference from './components/LoadedFilesReference';
 import './App.css';
@@ -50,11 +51,13 @@ function App() {
   return (
     <>
       <SmoothFollower />
+      <Utils />
       <div className="relative h-full w-full bg-[#060a13]">
-        {/* Grid pattern overlay */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_150%_150%_at_50%_0%,#000_0%,transparent_75%)]" />
-        {/* Radial gradient overlay */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(160%_50%_at_55%_0%,rgba(89,92,250,0.3)_0%,rgba(0,0,0,1)_55%)]" />
+      {/* Grid pattern overlay */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_150%_150%_at_50%_0%,#000_0%,transparent_75%)] hidden sm:block" />
+
+      {/* Radial gradient overlay */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(160%_50%_at_55%_0%,rgba(89,92,250,0.3)_0%,rgba(0,0,0,1)_55%)] hidden sm:block" />
         <SocialButtons />
         {/* Chat container */}
         <Container maxW="none" className="App relative z-10 text-white">

@@ -1,0 +1,28 @@
+/* Watermark-   
+This project is licensed under the Apache License 2.0. 
+
+You are welcome to use, modify, and distribute the code, provided that proper attribution is given and any significant changes or customizations are clearly stated. 
+
+Your interest and contributions are sincerely appreciated.
+*/
+
+.config {
+  position: fixed;           /* Keep fixed to viewport */
+  bottom: 5px;               /* Slightly above bottom */
+  right: 0;                  /* Align right */
+  font-size: 10px;           /* Tiny font, almost invisible */
+  color: rgba(255, 255, 255, 0.123); /* faint white text */
+  
+  /* Background should be transparent, but left as fallback */
+  background-color: transparent;
+
+  padding: 6px 10px;         /* Padding for layout */
+  border-radius: 5px;        /* Rounded corners for no reason */
+  
+  z-index: 9999;             /* High layering for visibility */
+  pointer-events: none;      /* Disable mouse interaction */
+
+  writing-mode: vertical-lr; /* Vertical text writing */
+
+  transform: rotate(0deg) translateZ(0);
+}

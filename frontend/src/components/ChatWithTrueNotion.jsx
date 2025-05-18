@@ -83,31 +83,34 @@ const ChatWithTrueNotion = () => {
       </Box>
 
       {/* Input section */}
-      <Box className="flex max-w-[1400px] px-16 pt-4 w-[100%] self-center">
-        <Box className="flex w-[100%] gap-4 justify-between items-center">
-          <Textarea
-            placeholder="Ask me anything.."
-            value={input || ""}
-            rounded="2xl"
-            sx={{
-              resize: "none",
-              padding: "16px 20px",
-              background: "gray.700",
-              color: "white",
-              _placeholder: { color: "white" },
-              fontSize: "lg",
-              minHeight: "3.5rem",
-            }}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                handleSend();
-              }
-            }}
-            variant={"unstyled"}
-          />
-          <Box className="flex gap-3 flex-row">
+      <Box className="w-full flex justify-center px-4 lg:ml-20">
+        <Box className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full max-w-5xl">
+          <Box className="flex-1">
+            <Textarea
+              placeholder="Ask me anything.."
+              value={input || ""}
+              rounded="2xl"
+              sx={{
+                resize: "none",
+                padding: "16px 20px",
+                background: "gray.700",
+                color: "white",
+                _placeholder: { color: "white" },
+                fontSize: "lg",
+                minHeight: "3.5rem",
+              }}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSend();
+                }
+              }}
+              variant="unstyled"
+            />
+          </Box>
+
+          <Box className="flex gap-3 shrink-0">
             <Button
               rounded="2xl"
               bg="green.500"
@@ -123,9 +126,9 @@ const ChatWithTrueNotion = () => {
             </Button>
             <Button
               rounded="2xl"
-              color={"white"}
+              color="white"
               _hover={{ bg: "blue.500" }}
-              variant={"outline"}
+              variant="outline"
               h="3rem"
               fontSize="lg"
               onClick={() => updateMessage([])}
@@ -150,19 +153,20 @@ const Introduction = () => {
 
   return (
     <Box className="flex flex-col items-center justify-center h-screen text-center px-8">
-      {/* Logo + Heading on the same line */}
-      <Box className="flex items-center justify-center gap-8 mb-6">
+      {/* Logo and Heading with responsive layout */}
+      <Box className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-6">
         <img
           src={trueNotionLogo}
           alt="TrueNotion Logo"
-          style={{ width: "120px", height: "120px" }}
+          className="w-20 h-20 sm:w-18 sm:h-18 md:w-28 md:h-28 lg:w-32 lg:h-32"
         />
         <Text
-          fontSize="8xl"
+          fontSize={{ base: "5xl", md: "6xl", lg: "8xl" }}
           bgGradient="linear(to-r, white, blue.300)"
           bgClip="text"
           color="transparent"
           fontWeight="bold"
+          className="text-center"
         >
           <span style={{ fontWeight: "bold" }}>True</span>
           <span style={{ fontWeight: "normal" }}>Notion AI</span>
@@ -171,7 +175,7 @@ const Introduction = () => {
 
       {/* Rest of the text is stacked vertically */}
       <Text
-        fontSize="3xl"
+        fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
         fontWeight="bold"
         bgGradient="linear(to-r, white, blue.300)"
         bgClip="text"
@@ -195,7 +199,7 @@ const Introduction = () => {
 
       {showSecondTypewriter && (
         <Text
-          fontSize="2xl"
+          fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
           bgGradient="linear(to-r, white, blue.300)"
           bgClip="text"
           color="gray"
@@ -213,6 +217,7 @@ const Introduction = () => {
         </Text>
       )}
     </Box>
+
   );
 };
 

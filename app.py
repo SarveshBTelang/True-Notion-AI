@@ -1,10 +1,14 @@
+from util import suppress
+suppress.all()
+suppress.langchain_warnings()
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware  # ✅ Import CORS
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from crewai import Crew
 from agents import load_default_agent
 from src import process
 from src import data_loader
+from src.banner import print_banner
 from datetime import datetime
 import os
 import json
@@ -19,6 +23,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+print("Initializing..")
+print_banner()
 
 try:
     with open('rag/rag_config.json','r') as f:

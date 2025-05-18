@@ -1,12 +1,17 @@
 #!/usr/bin/env python
+from util import suppress
+suppress.all()
+suppress.langchain_warnings()
 import os
 import json
 from datetime import datetime
-
 from crewai import Crew
 from agents import load_default_agent
 from src import process, data_loader
 from src.banner import print_banner
+
+print("Initializing..")
+print_banner()
 
 # Global variables for conversation, retriever and crew instance
 chat_history = []  # Each element is a tuple (user query, AI answer)
@@ -68,8 +73,6 @@ def initialize_system(rag_parameters):
 def chat_loop():
     """Runs an interactive chat loop with the user."""
     global chat_history, crew_instance, retriever, memory
-    
-    print_banner()
     print("Welcome to TrueNotion AI chat!")
     print("\nType your question below. Type 'exit' to quit.\n")
 

@@ -15,12 +15,14 @@ def initialize_system(adjusted_k = 10, adjusted_chunk_size= 1000):
     ]
 
     if not json_files:
-        print("No JSON files found in the 'data' directory.")
-        return None
+        print("No JSON files found in local 'data' directory... fetching from upstash")
 
     print("=== Loading Datasets ===")
-    documents = data_loader.load_dataset_from_upstash()
+    documents, keys = data_loader.load_dataset_from_upstash()
     print(f"Loaded {len(documents)} documents.")
+
+    if not documents and not json_files:
+        raise RuntimeError("No data found. Please ensure data is available in the database.")
 
     #documents = data_loader.load_dataset_from_multiple_files(json_files)
     #print(f"Loaded {len(documents)} documents from {len(json_files)} file(s).")
@@ -35,4 +37,4 @@ def initialize_system(adjusted_k = 10, adjusted_chunk_size= 1000):
     retriever = vectorstore.as_retriever(search_kwargs={"k": adjusted_k})
     print("Vectorstore created and documents indexed.")
 
-    return retriever
+    return retriever, keys

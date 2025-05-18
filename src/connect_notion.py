@@ -86,7 +86,7 @@ def save_to_upstash_redis(key, data):
         "Authorization": f"Bearer {UPSTASH_REDIS_REST_TOKEN}",
         "Content-Type": "application/json"
     }
-    response = requests.post(url, headers=headers, json={"value": json.dumps(data)})
+    response = requests.post(url, headers=headers, json={"0": json.dumps(data)})
     if response.status_code != 200:
         raise Exception(f"Failed to store data in Upstash: {response.text}")
     print(f"Data successfully saved to Upstash under key: {key}")
@@ -100,8 +100,19 @@ def extract_pages(num_pages=None):
     notion_data = response.json()
     parsed_data = extract_notion_rows(notion_data)
 
-    # Save to Upstash Redis instead of local file
+    # Save notion data on upstash
     save_to_upstash_redis("notion_database", parsed_data)
+
+    # Upload local data on upstash (upload from up)
+    data_dir= 'data'
+    for filename in os.listdir(data_dir):
+        if filename.endswith('.json'):
+            filepath = os.path.join(data_dir, filename)
+            with open(filepath, 'r') as file:
+                data = json.load(file)
+            
+            key = os.path.splitext(filename)[0]
+            save_to_upstash_redis(key, data)
 
     # Clean up env vars
     os.environ.pop("NOTION_TOKEN", None)

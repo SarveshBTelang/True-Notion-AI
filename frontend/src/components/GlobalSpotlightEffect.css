@@ -1,0 +1,13 @@
+/* GlobalSpotlightEffect.css */
+
+.global-spotlight-effect {
+  pointer-events: none;
+  position: fixed; /* Make it cover the entire page */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999; /* Ensure the spotlight is on top */
+  opacity: 0;
+  transition: opacity 300ms;
+}

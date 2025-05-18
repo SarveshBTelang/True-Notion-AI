@@ -1,0 +1,2 @@
+# Note: The "agent_config.json" file gets updated when a user submits agent configurations via the frontend.
+# In contrast, "default_agent.json" remains unchanged and serves as a fallback if the config file is missing from Upstash.

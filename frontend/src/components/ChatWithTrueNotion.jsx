@@ -35,10 +35,7 @@ const ChatWithTrueNotion = () => {
     // Scroll to top when Send button is clicked
     window.scrollTo({ top: 0, behavior: "smooth" });
     setInput("");
-    updateMessage([
-      ...messages,
-      { role: "user", parts: [{ text: input }] },
-    ]);
+    updateMessage([...messages, { role: "user", parts: [{ text: input }] }]);
     sendMessages({ message: input, history: messages });
   };
 
@@ -82,9 +79,47 @@ const ChatWithTrueNotion = () => {
         </Box>
       </Box>
 
-      {/* Input section */}
-      <Box className="w-full flex justify-center px-4 lg:ml-20">
-        <Box className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full max-w-5xl">
+      {/* Preset Query Buttons - Only show when chat interface (i.e., messages) exist */}
+      {messages.length > 0 && (
+        <Box className="w-full flex justify-center px-4 mb-4">
+          <Box className="flex gap-3">
+            <Button
+              rounded="2xl"
+              variant="outline"
+              color="white"
+              borderStyle="dashed"
+              _hover={{ bg: "blue.500" }}
+              h={{ base: "2.5rem", md: "3rem" }}          // smaller on mobile
+              fontSize={{ base: "md", md: "lg" }}         // smaller font on mobile
+              onClick={() => {
+                setInput("What does this data cover?");
+                handleSend();
+              }}
+            >
+              What does this data cover?
+            </Button>
+            <Button
+              rounded="2xl"
+              variant="outline"
+              color="white"
+              borderStyle="dashed"
+              _hover={{ bg: "blue.500" }}
+              h={{ base: "2.5rem", md: "3rem" }}          // smaller on mobile
+              fontSize={{ base: "md", md: "lg" }}         // smaller font on mobile
+              onClick={() => {
+                setInput("What questions can I ask?");
+                handleSend();
+              }}
+            >
+              What questions can I ask?
+            </Button>
+          </Box>
+        </Box>
+      )}
+
+      {/* Input Section */}
+      <Box className="w-full flex justify-center px-4 lg:ml-5">
+        <Box className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full max-w-4xl">
           <Box className="flex-1">
             <Textarea
               placeholder="Ask me anything.."
@@ -175,7 +210,7 @@ const Introduction = () => {
 
       {/* Rest of the text is stacked vertically */}
       <Text
-        fontSize={{ base: "xl", md: "2xl", lg: "4xl" }}
+        fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
         fontWeight="bold"
         bgGradient="linear(to-r, white, blue.300)"
         bgClip="text"

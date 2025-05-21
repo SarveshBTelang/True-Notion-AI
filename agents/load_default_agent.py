@@ -3,6 +3,7 @@ import requests
 import json
 from dotenv import load_dotenv, dotenv_values
 from crewai import Agent, Task, LLM
+from mistralai import Mistral
 
 # Load .env variables
 load_dotenv()
@@ -32,6 +33,24 @@ def load_default_config() -> dict:
     with open(default_path, "r") as f:
         return json.load(f)
 
+def StandardLLMResponse(input):
+    """ 
+    Modify this as well with respect to your custom selected LLM. Make sure final response returns extracted answer from query.
+    """
+    with Mistral(
+        api_key=os.environ["MISTRAL_API_KEY"],
+    ) as mistral:
+
+        response = mistral.chat.complete(model="mistral-small-latest", messages=[
+            {
+                "content": input,
+                "role": "user",
+            },
+        ])
+
+        final_response = response.choices[0].message.content
+
+    return final_response
 
 # Try fetching the config from Upstash, fallback to default if not found or error
 try:

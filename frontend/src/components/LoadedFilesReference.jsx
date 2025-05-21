@@ -9,7 +9,19 @@ function LoadedFilesReference() {
   const [error, setError] = useState(null);
   const [status, setStatus] = useState("connecting"); // 'connecting' | 'loading' | 'loaded' | 'error'
   const [collapsed, setCollapsed] = useState(true); // Panel is hidden by default
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
 
+  // Responsive listener
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Simulate connection and data fetch
   useEffect(() => {
     const timer = setTimeout(() => {
       setStatus("loading");
@@ -35,17 +47,15 @@ function LoadedFilesReference() {
 
   const containerStyle = {
     position: "fixed",
-    top: "10px",
-    right: "10px",
+    top: isSmallScreen ? "70px" : "10px",
+    right: isSmallScreen ? "5px" : "10px",
     backgroundColor: "transparent",
     color: "lightblue",
-    fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 
-                     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", 
-                     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", 
-                     "Segoe UI Symbol", "Noto Color Emoji"`,
-    padding: "1em",
+    fontFamily:
+      "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+    padding: isSmallScreen ? "0.5em" : "1em",
     borderRadius: "8px",
-    maxWidth: "300px",
+    maxWidth: isSmallScreen ? "40%" : "300px",
     whiteSpace: "pre-wrap",
     zIndex: 1000,
     border: "1px solid #263381",
@@ -53,6 +63,7 @@ function LoadedFilesReference() {
     display: "flex",
     flexDirection: "column",
     gap: "10px",
+    fontSize: isSmallScreen ? "0.7em" : "1em",
   };
 
   const buttonStyle = {
@@ -61,7 +72,7 @@ function LoadedFilesReference() {
     color: "lightblue",
     cursor: "pointer",
     fontSize: "1em",
-    fontWeight: "bold"
+    fontWeight: "bold",
   };
 
   return (
@@ -71,7 +82,7 @@ function LoadedFilesReference() {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -103,7 +114,7 @@ function LoadedFilesReference() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between"
+                justifyContent: "space-between",
               }}
             >
               <div>
@@ -118,7 +129,7 @@ function LoadedFilesReference() {
                   width: 60,
                   height: 60,
                   marginLeft: "5px",
-                  marginRight: "15px"
+                  marginRight: "15px",
                 }}
               />
             </div>

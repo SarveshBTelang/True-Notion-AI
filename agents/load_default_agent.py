@@ -5,8 +5,10 @@ from dotenv import load_dotenv, dotenv_values
 from crewai import Agent, Task, LLM
 from mistralai import Mistral
 
-# Load .env variables
-load_dotenv()
+if "MISTRAL_API_KEY" not in os.environ:
+    # For running locally or docker run without env vars set,
+    from dotenv import load_dotenv
+    load_dotenv()  # Loads variables from .env into os.environ
 
 UPSTASH_REDIS_REST_URL = os.getenv("UPSTASH_REDIS_REST_URL")
 UPSTASH_REDIS_REST_TOKEN = os.getenv("UPSTASH_REDIS_REST_TOKEN")
@@ -84,11 +86,17 @@ llm = LLM(
 
 class ConfigLoader:
     def __init__(self, env_path=".env"):
-        self.config = dotenv_values(env_path)
-        self.set_env_variables()
+        # Only load if env var not already set (Cloud Run scenario)
+        if "MISTRAL_API_KEY" not in os.environ:
+            self.config = dotenv_values(env_path)
+            self.set_env_variables()
+        else:
+            # Env var already set (e.g. in Cloud Run), do nothing
+            pass
 
     def set_env_variables(self):
         os.environ["MISTRAL_API_KEY"] = self.config.get("MISTRAL_API_KEY", "")
+        
         # Uncomment if needed
         # os.environ["SERPER_API_KEY"] = self.config.get("SERPER_API_KEY", "")
         # os.environ["GROQ_API_KEY"] = self.config.get("GROQ_API_KEY", "")

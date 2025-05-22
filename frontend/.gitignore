@@ -1,3 +1,5 @@
+# Only for frontend part in case you wish to separate the folders.
+
 # Logs
 logs
 *.log

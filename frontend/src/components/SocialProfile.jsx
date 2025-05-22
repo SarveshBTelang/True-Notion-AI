@@ -95,10 +95,3 @@ const SocialButtons = () => {
 };
 
 export default SocialButtons;
-
-
-            //top: '14px',
-            //left: '230px',
-            //width: 110,
-            //height: 110,
-            //zIndex: 9999,

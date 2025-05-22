@@ -1,4 +1,6 @@
-const BACKEND_URL = 'http://localhost:8000/chat';  // or your deployed backend
+import { DOMAIN } from "./backend_domain";
+
+const BACKEND_URL = DOMAIN+'/chat'; 
 
 const sendToTrueNotion = async ({ message, history }) => {
   try {

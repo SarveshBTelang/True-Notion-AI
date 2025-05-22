@@ -3,8 +3,9 @@ import requests
 import json
 from dotenv import load_dotenv
 
-# Load environment variables from the .env file
-load_dotenv()
+if "MISTRAL_API_KEY" not in os.environ:
+    # For running locally or docker run,
+    load_dotenv()  # Loads variables from .env into os.environ
 
 # Notion credentials
 NOTION_TOKEN = os.getenv('NOTION_TOKEN')

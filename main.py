@@ -1,4 +1,31 @@
 #!/usr/bin/env python
+"""
+TrueNotion AI - An open-source Agentic RAG framework using Crew AI, and LangChain
+-------------
+Description:
+-------------
+Main Functionalities:
+- Extract insights from Notion notes: Sync personal or business documents into a Notion database that form the base of your **internal knowledge layer**.
+- Memory Routing via Upstash Redis: Stores document/task metadata to support fast lookup, secure and persistent data retrieval.
+- Chunking & Embedding (LangChain): Documents are split into RAG-optimized chunks with configurable top-K, chunk size, and window size.
+- Vectorization & Semantic Retrieval: Uses local or API-based embeddings (e.g., Mistral) and indexes them into a **Vector Database** like FAISS or Upstash.
+- Tool Creation:** Tools such as VectorStoreTool and SummaryTool are created from the knowledge base and reused across different AI agents.
+- Multi-Agent Orchestration with CrewAI: Starts with a Knowledge Analyst** agent and is easily extendable with Web Search Agents (Serper), Sentiment Analyzers, and Domain Experts (e.g., Finance, Sales).
+- Response Generation via LLMs:** Uses Mistral or plugin-based LLM APIs with concurrent multi-model support for tailored responses.
+- FastAPI Backend + Optional Frontend:Backend manages routing and conversations, with a frontend deployable on GitHub Pages, Vercel, or any static host.
+
+Use this framework to orchestrate powerful, cloud-hosted AI workflows tailored to your needs.
+
+-------------
+Author: Sarvesh Telang
+LinkedIn: https://www.linkedin.com/in/sarvesh-telang-17916448/
+05.2025
+-------------
+
+Standalone python file
+
+"""
+
 from util import suppress
 suppress.all()
 suppress.langchain_warnings()
@@ -7,7 +34,7 @@ import json
 from datetime import datetime
 from crewai import Crew
 from agents import load_default_agent
-from src import vectorstore, data_loader #process
+from src import process, data_loader
 from src.banner import print_banner
 
 print("Initializing..")
@@ -63,7 +90,7 @@ def initialize_system(rag_parameters):
     chunk_size = rag_parameters.get("chunk_size")
     memory = rag_parameters.get("memory")
     # This call is assumed to initialize and return the document retriever used to fetch context.
-    retriever, loaded_files_reference = vectorstore.initialize_system(adjusted_k=k, adjusted_chunk_size=chunk_size)
+    retriever, loaded_files_reference = process.initialize_system(adjusted_k=k, adjusted_chunk_size=chunk_size)
     # Extend the log for reference (printed here for debugging purposes)
     loaded_files_reference.extend([
         "RAG Parameters:",

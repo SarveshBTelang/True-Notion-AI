@@ -1,0 +1,1 @@
+export const DOMAIN = 'http://localhost:8000/chat' // Change this to your deployed backend domain

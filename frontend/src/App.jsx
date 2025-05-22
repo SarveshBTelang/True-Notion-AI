@@ -1,6 +1,7 @@
 // App.jsx
 'use client';
 import { useEffect, useRef } from 'react';
+import { DOMAIN } from './service/backend_domain';
 import ChatWithTrueNotion from './components/ChatWithTrueNotion';
 import SmoothFollower from './components/SmoothFollower';
 import AgentConfigForm from './components/AgentData';
@@ -43,7 +44,7 @@ function App() {
     const navType = performance.getEntriesByType("navigation")[0]?.type;
     if (!hasInitialized.current && navType === "reload") {
       hasInitialized.current = true;
-      fetch("http://localhost:8000/initialize", {
+      fetch(DOMAIN +'/initialize', {
         method: "POST"
       }).catch(err => console.error("Backend initialization failed:", err));
     }

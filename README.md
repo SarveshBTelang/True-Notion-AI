@@ -12,31 +12,30 @@
   <img src="https://img.shields.io/github/issues-pr/SarveshBTelang/True-Notion-AI" alt="Pull Requests" />
   <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" alt="Contributions welcome" />
   <img src="https://img.shields.io/badge/python-3.10.0-blue" alt="Python Version" />
-  <img src="https://img.shields.io/badge/pip-25.1-blue" alt="Pip Version" />
   <img src="https://img.shields.io/badge/crewai-0.120.1-blue" alt="CrewAI Version" />
   <img src="https://img.shields.io/badge/fastapi-0.115.12-blue" alt="FastAPI Version" />
   <img src="https://img.shields.io/badge/langchain-0.3.25-blue" alt="LangChain Version" />
 </p>
 
->**An open-source AI agent framework built on Agentic RAG, Crew AI & Langchains designed to Connect, Customize, and Control your intelligent workflows.**
-> Effortlessly Sync with **Notion databases** in real-time, integrate powerful agentic RAG pipelines in your daily decisions.
-> **Remotely access & configure agents, tasks, memory, accuracy, context, and retrieval parameters** through cloud— all while maintaining full data privacy & security.**
-> Customize with **any Crew AI supported LLM service** (Currently using Mistral as default)**
-> **Versatile framework offers a ready-to-use template for crafting any AI pipeline, from sentiment analysis to data aggregation, supporting a broad spectrum of vector embeddings like GloVe, all-MiniLM-L6-v2, Word2Vec, LLaMA, and APIs such as Cohere and DeepInfra.**
-> Ideal template for orchestrating intelligent **Multi-agent workflows** across diverse applications—such as **web customer service chatbots**, **domain expert systems**, **sales profiling**, **web scraping bots**, **dynamic report generation**, **business scheduling**, and **financial planning**—all powered by scalable, cloud-hosted LLMs like Mistral.
+* An open-source AI project built on **Agentic RAG framework, Crew AI & Langchains** designed to Connect, Customize, and Control your intelligent workflows.**
+* **Sync with Notion databases in real-time**, integrate powerful agentic RAG pipelines in your daily decisions.
+* **Remotely access & configure agents, tasks, memory, accuracy, context, and retrieval parameters** through cloud— all while maintaining full data privacy & security.**
+
+Customize with **any Crew AI supported LLM service** (Currently using Mistral as default)
+
+Versatile framework offers a ready-to-use template for crafting any AI pipeline, from sentiment analysis to data aggregation, supporting a broad spectrum of vector embeddings like GloVe, all-MiniLM-L6-v2, Word2Vec, LLaMA, and APIs such as Cohere and DeepInfra.
+
+Ideal template for orchestrating intelligent Multi-agent workflows across diverse applications—such as web customer service chatbots**, domain expert systems**, sales profiling, web scraping bots, dynamic report generation, business scheduling, and financial planning—all powered by scalable, cloud-hosted LLMs like Mistral.
+
+***Refer repository [True-Notion-AI-Backend-Server](https://github.com/username/repo-name) for ready to deploy code with Docker file***
 
 Author: [Sarvesh Telang](https://www.linkedin.com/in/sarvesh-telang-17916448/)
 
 ---
 
-## 🔧 Overview
-
-This repo empowers you to build your own **AI assistant** with:
-
-- Knowledge from Notion
-- Tools like CrewAI & LangChain
-- Agentic Reasoning via RAG
-- Self-hosting your application for **full data ownership**
+<p align="center">
+  <img src="truenotion_illustration.png" alt="Logo" width="800" />
+</p>
 
 ---
 
@@ -47,7 +46,7 @@ This repo empowers you to build your own **AI assistant** with:
 - **Data Ownership:** Full control of models, storage, and flow.
 - **Notion Integration:** Use Notion as a structured data backend.
 - **Prebuilt AI Assistant:** Plug-and-play example for common use cases.
-- **Customize with adding NLP Tools:** Sentiment, semantic analyzers, web crawlers (TextBlob, FASS, Serper etc.).
+- **Customize with adding NLP Tools:** Sentiment, semantic analyzers, web crawlers (TextBlob, FAISS, Serper etc.).
 - **Cloud-Ready Deployment:** Works with Vercel, Render, Railway, etc.
 
 ---
@@ -105,13 +104,17 @@ python main.py   (standalone mode for testing)
 
 uvicorn app:app --reload   (with fast api backend server)
 
+# 6. Deploy your app
+Refer repo [True-Notion-AI-Backend-Server](https://github.com/username/repo-name)
+
 # 6. Install dependencies (Frontend)
+cd frontend --> npm install
 
+Configure your backend domain at:
+frontend/src/service/backend_domain.js
 
-
-
-
-
+npm run dev
+```
+---
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-

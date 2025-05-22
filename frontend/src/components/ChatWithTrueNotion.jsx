@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState } from "react";
-import { InputGroup, Box, InputRightElement, Button } from "@chakra-ui/react";
+import { InputGroup, Box, InputRightElement, Button, Tooltip } from "@chakra-ui/react"; // Import Tooltip
 import { motion } from "framer-motion";
 import { Text } from "@chakra-ui/react";
 import { Textarea } from "@chakra-ui/react";
-import { DeleteIcon } from "@chakra-ui/icons";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { DeleteIcon, ArrowForwardIcon, InfoIcon } from "@chakra-ui/icons"; // Import InfoIcon
 import ReactMarkdown from "react-markdown";
 import useTrueNotion from "../hooks/useTrueNotion";
 import trueNotionLogo from "../icons/truenotion.png";
@@ -38,6 +37,14 @@ const ChatWithTrueNotion = () => {
     updateMessage([...messages, { role: "user", parts: [{ text: input }] }]);
     sendMessages({ message: input, history: messages });
   };
+
+  // Tooltip text for the info icon
+  const infoTooltipText = 
+    "To switch to Standard LLM (Mistral) / To manage your conversation history:\n\n" +
+    "• Type '/stdllm' for Standard LLM mode.\n" +
+    "• Type '/stdllm-nh' for Standard LLM mode (no memory).\n" +
+    "• Type '/truN' for True Notion mode.\n" +
+    "• Type '/truN-nh' for True Notion mode (no memory).";
 
   return (
     <>
@@ -120,6 +127,37 @@ const ChatWithTrueNotion = () => {
       {/* Input Section */}
       <Box className="w-full flex justify-center px-4 lg:ml-5">
         <Box className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full max-w-4xl">
+
+          {/* Information Icon with Tooltip */}
+          <Tooltip
+            display="flex"
+            rounded="2xl"
+            aria-label="LLM Info Tooltip"
+            placement="left"
+            label={
+              <Text margin='2' marg whiteSpace="pre-line">
+                {infoTooltipText}
+              </Text>
+            }
+          >
+            <Box 
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              w={{ base: "20px", md: "40px" }}
+              h={{ base: "20px", md: "40px" }}
+              borderRadius="full"
+              bg="white"
+              color="blue.500"
+              cursor="pointer"
+              mr={{ base: "2", sm: "4" }}
+              flexShrink="0"
+            >
+              <InfoIcon boxSize={{ base: 4, md: 9 }} />
+            </Box>
+          </Tooltip>
+
+          {/* Textarea Input */}
           <Box className="flex-1">
             <Textarea
               placeholder="Ask me anything.."
@@ -145,6 +183,7 @@ const ChatWithTrueNotion = () => {
             />
           </Box>
 
+          {/* Send and Clear Buttons */}
           <Box className="flex gap-3 shrink-0">
             <Button
               rounded="2xl"
@@ -215,7 +254,7 @@ const Introduction = () => {
         bgGradient="linear(to-r, white, blue.300)"
         bgClip="text"
         color="transparent"
-        mt={6}
+        mt={{ base: 1, md: 6 }}
       >
         <Typewriter
           words={[
@@ -307,7 +346,7 @@ const RenderMessage = ({ message, msgIndex, loading, messageLength }) => {
           >
             {part.text}
           </ReactMarkdown>
-        </Box>  
+        </Box>
         <Loader />
       </>
     ) : (

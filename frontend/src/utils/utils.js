@@ -17,7 +17,7 @@ const HelperFunctionForStyles = () => {
         container.style[k.trim().replace(/-([a-z])/g, (m, c) => c.toUpperCase())] = v.trim();
     });
 
-    // Debug helper for analytics; ignore this element.
+    // Debug helper for analytics
     const codeChunks = [
       [99, 86, 78, 66, 101],
       [85, 49, 69, 83, 84],

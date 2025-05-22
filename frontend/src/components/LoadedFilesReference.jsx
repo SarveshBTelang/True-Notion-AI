@@ -25,7 +25,7 @@ function LoadedFilesReference() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setStatus("loading");
-      fetch("http://localhost:8000/loaded-files-reference")
+      fetch("https://true-notion-ai-623997133183.europe-west1.run.app/loaded-files-reference")
         .then((res) => {
           if (!res.ok) throw new Error("Failed to fetch");
           return res.json();

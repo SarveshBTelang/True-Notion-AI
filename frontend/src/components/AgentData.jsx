@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Textarea, FormControl, FormLabel, Button, Flex } from '@chakra-ui/react';
+import { DOMAIN } from '../service/backend_domain';
 
 const defaultPlaceholders = {
   agentName: 'Data Analyst',
@@ -67,7 +68,7 @@ const AgentConfigForm = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/save-agent-config", {
+      const response = await fetch(DOMAIN+'/save-agent-config', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

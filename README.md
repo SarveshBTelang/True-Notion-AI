@@ -19,7 +19,8 @@
   <img src="https://img.shields.io/badge/react-18.2.0-yellow" alt="React Version" />
 </p>
 
->> https://truenotionai.github.io/ <<
+***>> Visit [https://truenotionai.github.io/](https://truenotionai.github.io/) <<*** 
+– Added my portfolio and a sample Notion database as RAG context, which can be controlled remotely through Syncing Notion & Upstash cloud.
 
 * An open-source AI project built on **Agentic RAG framework, Crew AI & Langchains** designed to Connect, Customize, and Control your intelligent workflows.**
 * **Sync with Notion databases in real-time**, integrate powerful agentic RAG pipelines in your daily decisions.

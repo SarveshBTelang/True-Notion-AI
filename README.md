@@ -15,7 +15,11 @@
   <img src="https://img.shields.io/badge/crewai-0.120.1-blue" alt="CrewAI Version" />
   <img src="https://img.shields.io/badge/fastapi-0.115.12-blue" alt="FastAPI Version" />
   <img src="https://img.shields.io/badge/langchain-0.3.25-blue" alt="LangChain Version" />
+  <img src="https://img.shields.io/badge/npm-11.3.0-yellow" alt="npm Version" />
+  <img src="https://img.shields.io/badge/react-18.2.0-yellow" alt="React Version" />
 </p>
+
+>> https://truenotionai.github.io/ <<
 
 * An open-source AI project built on **Agentic RAG framework, Crew AI & Langchains** designed to Connect, Customize, and Control your intelligent workflows.**
 * **Sync with Notion databases in real-time**, integrate powerful agentic RAG pipelines in your daily decisions.
@@ -27,7 +31,7 @@ Versatile framework offers a ready-to-use template for crafting any AI pipeline,
 
 Ideal template for orchestrating intelligent Multi-agent workflows across diverse applications—such as web customer service chatbots**, domain expert systems**, sales profiling, web scraping bots, dynamic report generation, business scheduling, and financial planning—all powered by scalable, cloud-hosted LLMs like Mistral.
 
-***Refer repository [True-Notion-AI-Backend-Server](https://github.com/username/repo-name) for ready to deploy code with Docker file***
+***Refer repository [True-Notion-AI-Backend-Server](https://github.com/SarveshBTelang/TrueNotion-AI-Backend-Server) for ready to deploy code with Docker file***
 
 Author: [Sarvesh Telang](https://www.linkedin.com/in/sarvesh-telang-17916448/)
 
@@ -53,14 +57,14 @@ Author: [Sarvesh Telang](https://www.linkedin.com/in/sarvesh-telang-17916448/)
 
 ## How it Works:
 
-- **Extract insights from Notion notes:** Sync personal or business documents into a Notion database that form the base of your **internal knowledge layer**.
+- **Extract insights from Notion notes:** Sync personal or business documents into a Notion database that form the base of your **internal knowledge context**.
 - **Memory Routing via Upstash Redis:** Stores document/task metadata to support fast lookup, secure and persistent data retrieval.
-- **Chunking & Embedding (LangChain):** Documents are split into RAG-optimized chunks with configurable top-K, chunk size, and window size.
-- **Vectorization & Semantic Retrieval:** Uses local or API-based embeddings (e.g., Mistral) and indexes them into a **Vector Database** like FAISS or Upstash.
-- **Tool Creation:** Tools such as VectorStoreTool and SummaryTool are created from the knowledge base and reused across different AI agents.
+- **Chunking & Embedding (LangChain):** Documents are split into RAG-optimized chunks with configurable top-K, chunk size, and memory (last N conversations).
+- **Vectorization & Semantic Retrieval:** Uses local or API-based vector embeddings and indexes them into a **Vector Database** like FAISS/ GloVE/ Word2Vec/trtai etc.
+- **Tool Creation:** Tools such as Sentiment analysis, VectorStoreTool, Web-search tools could be created based on the application or context and reused across different AI agents.
 - **Multi-Agent Orchestration with CrewAI:** Starts with a **Knowledge Analyst** agent and is easily extendable with Web Search Agents (Serper), Sentiment Analyzers, and Domain Experts (e.g., Finance, Sales).
-- **Response Generation via LLMs:** Uses **Mistral** or plugin-based LLM APIs with concurrent multi-model support for tailored responses.
-- **FastAPI Backend + Optional Frontend:** Backend manages routing and conversations, with a frontend deployable on GitHub Pages, Vercel, or any static host.
+- **Response Generation via LLMs:** Uses **Mistral** or plugin-based LLM APIs supported with Crew AI with concurrent multi-model support for tailored responses.
+- **FastAPI Backend + Frontend:** Backend manages routing and conversations, with a frontend: Deployable on GitHub Pages, Vercel, or free tier platforms like Render, Railway, Koyeb, Fly.io etc.
 
 ---
 

@@ -11,5 +11,5 @@ export default defineConfig({
   define: {
     global: 'window',
   },
-  base: '/True-Notion-AI/'
+  base: '/'
 })

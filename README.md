@@ -120,6 +120,12 @@ frontend/src/service/backend_domain.js
 
 npm run dev
 ```
+
+## References
+
+> Frontend built with React, JavaScript, Vite, and Chakra UI, by extending and enhancing the codebase from: [SaiBarathR/gemini-bot-react](https://github.com/SaiBarathR/gemini-bot-react)
+> Image adapted from https://markovate.com/agentic-rag/
+
 ---
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+> This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.

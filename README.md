@@ -87,7 +87,8 @@ The term before "?" is your database ID
 https://www.notion.so/👉1f088b77abf28060xxxxxxxxxxxxxxxx👈?v=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 # NOTION INTEGRATION TOKEN
-Go to https://www.notion.so/profile/integrations, Log in to your Notion account, Select your workspace with created database and generate token
+Go to https://www.notion.so/profile/integrations, Log in to your Notion account,
+Select your workspace with created database and generate token
 Note: Ensure the database is connected to your token by checking the "Connections" tab in Database settings.
 
 # UPSTASH REDIS REST URL & REST TOKEN
@@ -109,10 +110,12 @@ python main.py   (standalone mode for testing)
 
 uvicorn app:app --reload   (with fast api backend server)
 
+```
 # 6. Deploy your app
-Refer repo [True-Notion-AI-Backend-Server](https://github.com/username/repo-name)
+Refer repo [True-Notion-AI-Backend-Server](https://github.com/SarveshBTelang/TrueNotion-AI-Backend-Server)
 
-# 6. Install dependencies (Frontend)
+```bash
+# 7. Install dependencies (Frontend)
 cd frontend --> npm install
 
 Configure your backend domain at:
@@ -123,8 +126,9 @@ npm run dev
 
 ## References
 
-> Frontend built with React, JavaScript, Vite, and Chakra UI, by extending and enhancing the codebase from: [SaiBarathR/gemini-bot-react](https://github.com/SaiBarathR/gemini-bot-react)
-> Image adapted from https://markovate.com/agentic-rag/
+> * Frontend built with React, JavaScript, Vite, and Chakra UI, by extending and enhancing the codebase from: [SaiBarathR/gemini-bot-react](https://github.com/SaiBarathR/gemini-bot-react)
+
+> * Image adapted from https://markovate.com/agentic-rag/
 
 ---
 

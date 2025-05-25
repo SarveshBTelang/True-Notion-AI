@@ -111,7 +111,7 @@ python main.py   (standalone mode for testing)
 uvicorn app:app --reload   (with fast api backend server)
 
 ```
-# 6. Deploy your app
+-# 6. Deploy your app
 Refer repo [True-Notion-AI-Backend-Server](https://github.com/SarveshBTelang/TrueNotion-AI-Backend-Server)
 
 ```bash
